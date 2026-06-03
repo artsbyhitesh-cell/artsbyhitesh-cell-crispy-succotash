@@ -59,6 +59,7 @@ padding:20px;
         overflow-x:auto;
         white-space:nowrap;
         font-size:12px;
+
     }
 
     .two-column{
@@ -190,6 +191,25 @@ margin:20px 0 10px;
 border-bottom:3px solid #6c2cff;
 display:inline-block;
 }
+
+.table-wrapper{
+    width:100%;
+    overflow-x:auto;
+    -webkit-overflow-scrolling: touch; /* smooth iOS/Android swipe */
+}
+
+@media screen and (max-width: 420px) {
+
+    table{
+        min-width:700px;  /* forces horizontal scroll */
+    }
+
+    th, td{
+        font-size:11px;
+        padding:8px;
+    }
+}
+
 table{
     width:100%;
     border-collapse:collapse;
@@ -197,7 +217,7 @@ table{
     overflow:hidden;
     border-radius:12px;
     box-shadow:0 4px 15px rgba(0,0,0,0.08);
-    border:5px solid black;
+    border:1px solid black;
 }
 
 table th{
@@ -338,6 +358,47 @@ display:none;
     color:#000000;
 }
 
+.a{
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background: #6c2cff;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    z-index: 999;
+}
+
+@media print {
+    @page {
+        size: A4;
+        margin: 15mm;
+    }
+
+    body {
+        background: white;
+        padding: 0;
+    }
+
+    .cv-container {
+        box-shadow: none;
+        border-radius: 0;
+    }
+
+    button {
+        display: none;
+    }
+}
+
+@media print {
+    @page {
+        size: A3;
+        margin: 20mm;
+    }
+}
+
 </style>
 </head>
 
@@ -373,6 +434,7 @@ To obtain a challenging position in a reputed organization where I can apply my 
 
 <div class="section-title">Educational Qualification</div>
 
+<div class="table-wrapper">
 <table>
 <tr>
 <th>S.No.</th>
@@ -424,7 +486,7 @@ To obtain a challenging position in a reputed organization where I can apply my 
 <td>61.70%</td>
 </tr>
 </table>
-
+</div>
 <p><b>🏆 QUALIFICATION:</b> ICMAI Foundation is cleared in 2021 with 68% </p>
 
 <div class="section-title">Personal Details</div>
@@ -501,7 +563,36 @@ I hereby declare that all the information furnished above is true and accurate t
 <div class="signature">
     <img src="Signature.png" alt="Signature">
     <p>Signature</p>
+
+    <a href="index.html">
+    <button> <i class="fa-solid fa-arrow-left-long"></i> Back to Home</button>
+</a>
+<button onclick="printA4()">Print A4</button>
+<button onclick="printA3()">Print A3</button> 
+
 </div>
+
+<script>
+function printA4() {
+    const style = document.createElement('style');
+    style.innerHTML = `
+        @page { size: A4; margin: 15mm; }
+    `;
+    document.head.appendChild(style);
+    window.print();
+    setTimeout(() => style.remove(), 1000);
+}
+
+function printA3() {
+    const style = document.createElement('style');
+    style.innerHTML = `
+        @page { size: A3; margin: 20mm; }
+    `;
+    document.head.appendChild(style);
+    window.print();
+    setTimeout(() => style.remove(), 1000);
+}
+</script>
 
 </body>
 </html>
