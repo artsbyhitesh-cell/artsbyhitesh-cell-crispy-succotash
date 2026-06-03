@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<title>CV Maker</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+background:#f2f2f2;
+padding:20px;
+}
+
+.cv-container{
+    max-width:1000px;
+    margin:auto;
+    padding:30px;
+    border-radius:20px;
+    position:relative;
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+        135deg,
+        #ffffff 0%,
+        #f8f5ff 50%,
+        #ffffff 100%
+    );
+
+    box-shadow:
+    0 10px 30px rgba(108,44,255,0.15),
+    0 5px 15px rgba(0,0,0,0.08);
+}
+
+/* Decorative top-right shape */
+.cv-container::before{
+    content:"";
+    position:absolute;
+    top:-80px;
+    right:-80px;
+    width:250px;
+    height:250px;
+    border-radius:50%;
+    background:rgba(108,44,255,0.08);
+}
+
+/* Decorative bottom-left shape */
+.cv-container::after{
+    content:"";
+    position:absolute;
+    bottom:-100px;
+    left:-100px;
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    background:rgba(108,44,255,0.05);
+}
+
+.top-badge{
+    position:absolute;
+    top:10px; /* move down */
+    left:50%;
+    transform:translateX(-50%);
+    width:70px;
+    height:30px;
+    background:#6c2cff;
+    color:white;
+    border-radius:50px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:20px;
+}
+
+.info h1{
+font-size:42px;
+margin-bottom:10px;
+}
+
+.info p{
+font-size:18px;
+margin:6px 0;
+}
+
+.photo{
+width:180px;
+height:180px;
+border-radius:50%;
+overflow:hidden;
+border:4px solid #6c2cff;
+}
+
+.photo img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.section-title{
+font-size:30px;
+font-weight:bold;
+margin:20px 0 10px;
+border-bottom:3px solid #6c2cff;
+display:inline-block;
+}
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:15px;
+    overflow:hidden;
+    border-radius:12px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.08);
+    border:5px solid black;
+}
+
+table th{
+    background:linear-gradient(135deg,#6c2cff,#8b5cf6);
+    color:white;
+    padding:14px;
+    font-size:16px;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.5px;
+}
+
+table td{
+    padding:12px;
+    text-align:center;
+    border-bottom:1px solid #e5e7eb;
+}
+
+.flex{
+display:flex;
+justify-content:space-between;
+gap:40px;
+margin-top:20px;
+}
+
+.left,
+.right{
+width:50%;
+}
+
+ul{
+padding-left:20px;
+}
+
+li{
+margin:8px 0;
+}
+
+.signature{
+text-align:right;
+margin-top:40px;
+font-size:24px;
+font-weight:bold;
+}
+
+button{
+margin-top:20px;
+padding:12px 25px;
+background:#6c2cff;
+color:white;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-size:16px;
+}
+
+@media print{
+button{
+display:none;
+}
+}
+
+.signature{
+    text-align:right;
+    margin-top:40px;
+}
+
+.signature img{
+    width:180px;
+    height:auto;
+    margin-bottom:-70px;
+    margin-top:-70px;
+}
+
+.signature p{
+    font-size:18px;
+    font-weight:bold;
+}
+
+.two-column{
+    display:flex;
+    justify-content:space-between;
+    gap:50px;
+    margin-top:20px;
+}
+
+.two-column ul{
+    padding-left:20px;
+}
+
+.two-column li{
+    margin-bottom:8px;
+}
+
+.section-title Social Media{
+    margin-top:30px;
+}
+.social-media p{
+    font-size:18px;
+    margin:8px 0;
+}
+
+.social-media i{
+    color:#6c2cff;
+    margin-right:10px;
+    width:25px;
+}
+
+.fa-whatsapp{
+    color:#25D366;
+}
+
+.fa-instagram{
+    color:#E4405F;
+}
+
+.fa-facebook{
+    color:#1877F2;
+}
+
+.fa-linkedin{
+    color:#0A66C2;
+}
+
+.fa-youtube{
+    color:#FF0000;
+}
+
+.fa-github{
+    color:#181717;
+}
+
+.fa-telegram{
+    color:#24A1DE;
+}
+
+.fa-x-twitter{
+    color:#000000;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="cv-container">
+        <div class="top-badge">RS</div>
+<div class="header">
+
+<div class="info">
+<h1>Hitesh Kumar Mishra</h1>
+<p><b>AT/PO:</b> Raghunath Ladies Hostel, Balangir</p>
+<p><b>Email:</b> hiteshmishra83@gmail.com</p>
+<p><b>Phone:</b> 8260928545</p>
+</div>
+
+<div class="photo">
+<img src="hitesh.jpg" alt="Hitesh Kumar Mishra">
+</div>
+
+</div>
+
+<div class="section-title">Objective</div>
+
+<p>
+To obtain a challenging position in a reputed organization where I can apply my academic knowledge, develop professional skills, and contribute to the growth of the company while continuously learning and growing.
+</p>
+
+<div class="section-title">Summary</div>
+<p>
+    I am Hitesh Kumar Mishra, a Commerce graduate with a Master's degree in Commerce from Rajendra University. I possess strong knowledge of business, accounting, and management concepts along with practical skills in MS Office, Graphic Design, HTML, and CSS. I am a quick learner, hardworking, and dedicated individual with excellent communication and teamwork abilities. I am passionate about continuous learning, creativity, and professional growth, and I aspire to contribute positively to an organization while enhancing my skills and experience.
+</p>
+
+<div class="section-title">Educational Qualification</div>
+
+<table>
+<tr>
+<th>S.No.</th>
+<th>Qualification</th>
+<th>School/College</th>
+<th>Board/University</th>
+<th>Examination Type</th>
+<th>Year</th>
+<th>%</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>10th</td>
+<td>Kendriya Vidyalaya No.2</td>
+<td> Kendriya Vidyalaya No.2 </td>
+<td>CBSE</td>
+<td>2018</td>
+<td>58%</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>12th</td>
+<td>Kendriya Vidyalaya No.2</td>
+<td> Kendriya Vidyalaya No.2</td>
+<td>CBSE</td>
+<td>2020</td>
+<td>60%</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>B.Com</td>
+<td>Rajendra University</td>
+<td>Rajendra University</td>
+<td>Regular</td>
+<td>2023</td>
+<td>57.20%</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td>M.Com</td>
+<td>Rajendra University</td>
+<td>Rajendra University</td>
+<td>Regular</td>        
+<td>2025</td>
+<td>61.70%</td>
+</tr>
+</table>
+
+<p><b>🏆 QUALIFICATION:</b> ICMAI Foundation is cleared in 2021 with 68% </p>
+
+<div class="section-title">Personal Details</div>
+<p>👨‍⚕️ <strong>Father:</strong> Dr Himanshu Sekhar Mishra</p>
+<p>👩 <strong>Mother:</strong> Mrs Sanjukta Mishra</p>
+<p>🎂 <strong>DOB:</strong> 04 Feb 2000</p>
+<p>🌏 <strong>Nationality:</strong> Indian</p>
+<p>♂️ <strong>Gender:</strong> Male</p>
+<p>💍 <strong>Marital Status:</strong> Single</p>
+<p>🗣️ <strong>Languages Known:</strong> English, Hindi, Odia</p>
+<p>🎨 <strong>Hobbies:</strong> Drawing, Traveling, Coding, Designing</p>
+<p>📋 <strong>Category:</strong> General</p>
+<p>🩸 <strong>Blood Group:</strong> AB+</p>
+<p>♿ <strong>PWD [Disability]:</strong> 70%</p>
+<p>🏠 <strong>Permanent Address:</strong> Raghunath Ladies Hostel, Balangir, Odisha, India</p>
+<p>📍 <strong>Current Address:</strong> Raghunath Ladies Hostel, Balangir, Odisha, India</p>
+<p>📮 <strong>Pin Code:</strong> 767001</p>
+
+<div class="two-column">
+<div class="left">
+<div class="section-title">Skills</div>
+<ul>
+<li>MS Office</li>
+<li>Graphic Design</li>
+<li>Drawing</li>
+<li>HTML & CSS</li>
+</ul>
+</div>
+<div class="right">
+<div class="section-title">Strengths</div>
+<ul>
+    <li>Positive Attitude and Self-Motivated</li>
+    <li>Quick Learner and Adaptable</li>
+    <li>Strong Communication Skills</li>
+    <li>Teamwork and Collaboration</li>
+    <li>Leadership Qualities</li>
+    <li>Time Management Skills</li>
+    <li>Problem-Solving Ability</li>
+    <li>Hardworking and Dedicated</li>
+    <li>Willingness to Learn New Technologies</li>
+</ul>
+</div>
+</div>
+ 
+<div class="section-title">Social Media</div>
+<p><i class="fa-brands fa-whatsapp"></i> WhatsApp
+</p>
+<p><i class="fa-brands fa-instagram"></i> Instagram
+</p>
+<p>
+<i class="fa-brands fa-x-twitter"></i> X (Twitter)
+</p>
+<p>
+<i class="fa-brands fa-facebook"></i> Facebook
+</p>
+<p>
+<i class="fa-solid fa-user-tie"></i> LinkedIn
+</p>
+<p>
+<i class="fa-brands fa-youtube"></i> YouTube
+</p>
+<p>
+<i class="fa-brands fa-github"></i> GitHub
+</p>
+<p>
+<i class="fa-brands fa-telegram"></i> Telegram
+</p>
+
+<div class="section-title">Declaration</div>
+<p>
+I hereby declare that all the information furnished above is true and accurate to the best of my knowledge and belief. I am a sincere, hardworking, and dedicated individual who is always willing to learn and improve my skills. I strive to maintain honesty, discipline, and professionalism in all aspects of my life. I assure that the details provided in this biodata are genuine and can be verified whenever required.
+</p>
+
+<div class="signature">
+    <img src="Signature.png" alt="Signature">
+    <p>Signature</p>
+</div>
+
+</body>
+</html>
