@@ -6,22 +6,21 @@ const assets = [
   "./cv.html",
   "./manifest.json",
   "./HITESH.jpeg",
-  "./Hitu.jpg",
-  "./Signature.png"
+  "./Hitu.png",
+  "./Signature.png",
+  "./logo.png"
 ];
 
 self.addEventListener("install", (e) => {
   e.waitUntil(
-    caches.open(cacheName).then((cache) => {
-      return cache.addAll(assets);
-    })
-  );
-});
-
-self.addEventListener("fetch", (e) => {
-  e.respondWith(
-    caches.match(e.request).then((response) => {
-      return response || fetch(e.request);
+    caches.open(cacheName).then(async (cache) => {
+      for (const asset of assets) {
+        try {
+          await cache.add(asset);
+        } catch (err) {
+          console.warn("Failed to cache:", asset);
+        }
+      }
     })
   );
 });
