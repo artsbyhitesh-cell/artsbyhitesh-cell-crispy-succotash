@@ -8,7 +8,7 @@ const assets = [
   "./HITESH.jpeg",
   "./Hitu.png",
   "./Signature.png",
-  "./logo.png"
+  "./Logo.png"
 ];
 
 self.addEventListener("install", (e) => {
