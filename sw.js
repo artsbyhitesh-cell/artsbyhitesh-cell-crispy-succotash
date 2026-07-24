@@ -1,4 +1,4 @@
-const cacheName = "hitesh-portfolio-v1";
+const cacheName = "hitesh-portfolio-v2";
 
 const assets = [
   "./",
